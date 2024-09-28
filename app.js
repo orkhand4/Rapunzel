@@ -1,6 +1,8 @@
 const cardsWrapper = document.querySelector(".cards-wrapper");
+const x = document.querySelector('#x');
+const btn = document.querySelector('#btn');
 
-const getData = async () => {
+const getAllData = async () => {
   const response = await fetch("https://fakestoreapi.com/products");
 
   const products = await response.json();
@@ -23,4 +25,19 @@ const getData = async () => {
     });
 };
 
-getData()
+getAllData()
+
+const getDataById = async (id) => {
+  const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+
+  const product = await response.json();
+  console.log((product));
+  
+  
+};
+
+
+btn. addEventListener('click', () => {
+  const ID = x.value
+  getDataById(ID)
+})
