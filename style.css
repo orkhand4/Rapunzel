@@ -55,6 +55,7 @@ header>h1{
   border-radius: 2em;
   gap: 1.6em;
   transition: .3s;
+  cursor: pointer;
 }
 
 .card:hover{
