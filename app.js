@@ -28,10 +28,24 @@ const getAllData = async () => {
 getAllData()
 
 const getDataById = async (id) => {
+
+cardsWrapper.innerHTML = ''
+
   const response = await fetch(`https://fakestoreapi.com/products/${id}`);
 
-  const product = await response.json();
-  console.log((product));
+  const item = await response.json();
+  
+  const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `<img src="${item.image}" alt="">
+          <h2>${item.title.slice(0, 10)}...</h2>
+          <p>${item.category}</p>
+          <button>Rate:${item.rating.rate} - Stock: ${
+          item.rating.count
+        }</button>`;
+
+        cardsWrapper.appendChild(card);
+
   
   
 };
